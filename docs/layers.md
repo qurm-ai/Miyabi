@@ -1,3 +1,18 @@
+```mermaid
+flowchart LR
+    Browser["Браузер"] --> Router["Router"]
+    Router --> Schema["Schema"]
+    Router --> Service["Service"]
+    Schema --> Service
+    Service --> Repository["Repository"]
+    Repository --> Model["Model (PostgreSQL)"]
+
+    Core["Core (config, database)"] -.-> Router
+    Core -.-> Service
+    Core -.-> Repository
+    Core -.-> Model
+```
+
 # Қабат картасы (4-сабақ)
 
 | Қабат | <1-әрекет: кім не істейді> | <2-әрекет> |
