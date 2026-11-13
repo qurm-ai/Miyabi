@@ -38,6 +38,7 @@ ENV/
 .idea/
 *.swp
 *.swo
+*.code-workspace
 
 # Testing and linting caches
 .pytest_cache/
