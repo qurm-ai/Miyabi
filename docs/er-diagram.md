@@ -1,6 +1,6 @@
 # Деректер моделі (6-сабақ)
 
-## Кестелер (Must stories негізінде)
+## Кестелер (AI-сыз, өзіңіз)
 - users: id, email, full_name, role, created_at
 - quizzes: id, title, topic, status, teacher_id, created_at
 - questions: id, text, quiz_id, created_at
