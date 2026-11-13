@@ -2,19 +2,19 @@
 
 | Әдіс | Жол | Кім | Не істейді | Story | Кесте |
 |---|---|---|---|---|---|
-| POST | /api/quizzes/generate | teacher | AI арқылы жаңа тест генерациялау | US-1 | quizzes, questions |
-| GET | /api/quizzes | teacher, student | Қолжетімді тесттер тізімін алу | US-2 | quizzes |
-| GET | /api/quizzes/{id} | student | Тестті сұрақтарымен ашу (correct_index-сіз) | US-3 | quizzes, questions, options |
-| PATCH | /api/quizzes/{id}/publish | иесі | Тестті оқушыларға жариялау | US-2 | quizzes |
-| POST | /api/quizzes/{id}/attempts | student | Тест жауаптарын жіберу және ұпай алу | US-4 | quiz_attempts, student_answers |
-| GET | /api/attempts/{id} | иесі, teacher | Тест тапсыру нәтижесін көру | US-4 | quiz_attempts, student_answers |
+| POST | /api/quizzes | teacher | Жаңа тест құру (AI генерациясы арқылы) | US-1 | quizzes, questions |
+| GET | /api/quizzes | teacher, student | Тесттер тізімін алу (студентке тек жарияланған) | US-2 | quizzes |
+| GET | /api/quizzes/{id} | student, иесі | Тест мәліметтерін алу (студентке correct_index-сіз) | US-3 | quizzes, questions, options |
+| PATCH | /api/quizzes/{id} | иесі | Тестті жариялау немесе өзгерту (status: published) | US-2 | quizzes |
+| POST | /api/quiz_attempts | student | Тест жауаптарын тапсыру және ұпай есептеу | US-4 | quiz_attempts, student_answers |
+| GET | /api/quiz_attempts/{id} | иесі, teacher | Тест тапсыру нәтижесі мен жинаған балын көру | US-4 | quiz_attempts, student_answers |
 
 ## Жауап кодтары
 
 | Код | Атауы | Мағынасы | Қолданылуы (QuizAI) |
 |---|---|---|---|
 | 200 | OK | Сұраныс сәтті өңделді | Тест мәліметтерін алу, тізім қарау, нәтиже қайтару |
-| 201 | Created | Жаңа ресурс сәтті құрылды | Жаңа тест генерацияланғанда, жауаптар қабылданғанда |
+| 201 | Created | Жаңа ресурс сәтті құрылды | Жаңа тест құрылғанда, жауаптар қабылданып талпыныс тіркелгенде |
 | 400 | Bad Request | Қате сұраныс логикасы | Сұрақтары жоқ бос тестті жариялауға әрекеттенгенде |
 | 401 | Unauthorized | Токен жоқ немесе жарамсыз | Жүйеге кірмеген (аутентификацияланбаған) пайдаланушы |
 | 403 | Forbidden | Рұқсат етілмеген рөл / ресурс | Студент мұғалім тестін өзгертпек болғанда, бөтен тестті өңдеуде |
