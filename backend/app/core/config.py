@@ -14,6 +14,10 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     ENVIRONMENT: str = "development"
 
+    @property
+    def environment(self) -> str:
+        return self.ENVIRONMENT
+
     # Database (PostgreSQL)
     POSTGRES_SERVER: str = "localhost"
     POSTGRES_PORT: int = 5432
