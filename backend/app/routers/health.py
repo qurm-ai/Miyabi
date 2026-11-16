@@ -12,3 +12,4 @@ def health() -> HealthRead:
         status="ok",
         environment=settings.environment,
     )
+

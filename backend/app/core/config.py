@@ -18,6 +18,10 @@ class Settings(BaseSettings):
     def environment(self) -> str:
         return self.ENVIRONMENT
 
+    @property
+    def app_name(self) -> str:
+        return self.PROJECT_NAME
+
     # Database (PostgreSQL)
     POSTGRES_SERVER: str = "localhost"
     POSTGRES_PORT: int = 5432
